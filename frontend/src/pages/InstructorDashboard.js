@@ -1,16 +1,29 @@
 import React from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './css/InstructorDashboard.css';
 
 function InstructorDashboard() {
+  const navigate = useNavigate();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    // Clear session or user data
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    console.log('Logging out...');
+    // Redirect to login page
+    navigate('/login', { replace: true });
+  };
+
   return (
     <div className="instructor-dashboard">
       <header>
         <div className="logo">Online Course Management</div>
         <nav>
-          <a href="/">Home</a>
-          <a href="/instructor-dashboard">Instructor Dashboard</a>
-          <a href="/profile">Profile</a>
-          <a href="/">Logout</a>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/instructor-dashboard">Instructor Dashboard</NavLink>
+          <NavLink to="/profile">Profile</NavLink>
+          <a href="/" onClick={handleLogout}>Logout</a>
         </nav>
       </header>
 

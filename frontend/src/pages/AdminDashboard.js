@@ -1,24 +1,24 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './css/StudentDashboard.css';
+import './css/AdminDashboard.css';
 
-function StudentDashboard() {
+function AdminDashboard() {
   return (
-    <div className="student-dashboard">
+    <div className="admin-dashboard">
       <header>
-        <div className="logo">Student Dashboard</div>
+        <div className="logo">Admin Dashboard</div>
         <nav>
-          <NavLink to="/" exact activeClassName="active">Home</NavLink>
-          <NavLink to="/profile" activeClassName="active">Profile</NavLink>
-          <NavLink to="/courses" activeClassName="active">My Courses</NavLink>
-          <NavLink to="/assignments" activeClassName="active">Assignments</NavLink>
-          <NavLink to="/grades" activeClassName="active">Grades</NavLink>
+          <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink>
+          <NavLink to="/profile" className={({ isActive }) => (isActive ? 'active' : '')}>Profile</NavLink>
+          <NavLink to="/courses" className={({ isActive }) => (isActive ? 'active' : '')}>My Courses</NavLink>
+          <NavLink to="/assignments" className={({ isActive }) => (isActive ? 'active' : '')}>Assignments</NavLink>
+          <NavLink to="/grades" className={({ isActive }) => (isActive ? 'active' : '')}>Grades</NavLink>
           <a href="/" onClick={handleLogout}>Logout</a>
         </nav>
       </header>
 
       <section className="dashboard-content">
-        <h1>Welcome, Student!</h1>
+        <h1>Welcome, Admin!</h1>
         <p>View your courses, assignments, and grades here.</p>
         {/* More student-specific features can be added here */}
       </section>
@@ -45,4 +45,4 @@ function handleLogout(e) {
   window.location.href = '/login';
 }
 
-export default StudentDashboard;
+export default AdminDashboard;

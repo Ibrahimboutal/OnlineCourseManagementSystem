@@ -1,0 +1,8 @@
+node_modules/
+.vscode/
+instance/
+package.json
+package-lock.json
+.env
+.venv
+test/
